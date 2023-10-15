@@ -50,12 +50,13 @@ table {
 
 h1, h2 {
     font-family: var(--main-font);
+    font-size: 2rem;
 }
 
 /* Main */
 .main-container {
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr 2fr;
+    grid-template-rows: 1fr 4fr 1fr 4fr;
     padding: 20px;
 }
 
@@ -69,6 +70,13 @@ h1, h2 {
     grid-row: 2;
     background-color: #F4E7D8;
     border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 120px);
+    justify-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    padding: 20px;
 }
 
 .bottom-header {
@@ -87,7 +95,17 @@ h1, h2 {
 
 /* Body */
 .book {
-
+    display: flex;
+    justify-content: center;
+    background-color: rgb(47, 47, 47);
+    height: 100%;
+    width: 100%;
+    /* border-radius: 15px; */
+    
 }
 
+.book > p, h6 {
+    color: white;
+    font-size: 0.8rem;
+}
 
