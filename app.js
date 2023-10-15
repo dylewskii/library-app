@@ -1,3 +1,4 @@
+// Object Constructor
 function Book (title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -9,5 +10,17 @@ function Book (title, author, pages, read) {
     }
 };
 
-let harryPotter = new Book("Harry Potter","JK Rowling", 999, false);
-console.log(harryPotter.info());
+// Library Array to hold Book Objects
+const myLibrary = [];
+
+// Takes user input & adds Book Object to Library Array
+function addBookToLibrary() {
+    let titleInput = prompt("Book title: ");
+    let authorInput = prompt("Author: ");
+    let pagesInput = prompt("Nr of Pages: ");
+    let hasReadInput = prompt("Have you read the book? (y/n): ");
+    let hasRead = hasReadInput.toLowerCase() === "y" ? true : false;
+
+    newBook = new Book(titleInput, authorInput, pagesInput, hasRead);
+    myLibrary.push(newBook);
+}
