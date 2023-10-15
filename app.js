@@ -24,3 +24,16 @@ function addBookToLibrary() {
     newBook = new Book(titleInput, authorInput, pagesInput, hasRead);
     myLibrary.push(newBook);
 }
+
+// testing
+bookOne = new Book("book one", "author one", 1, true);
+bookTwo = new Book("book two", "author two", 2, false);
+bookThree = new Book("book three", "author three", 3, true);
+
+myLibrary.push(bookOne);
+myLibrary.push(bookTwo);
+myLibrary.push(bookThree);
+
+function displayBook() {
+    
+}
