@@ -64,12 +64,6 @@ p, h6, button {
     justify-content: space-between;
 }
 
-/* .add-book {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 15px;
-} */
-
 .add-book-btn {
     border: 2px solid #FFD28E;
     background-color: #F4E7D8;
