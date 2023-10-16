@@ -78,6 +78,7 @@ p, h6, button {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 120px);
+    grid-auto-rows: 120px;
     justify-items: center;
     align-items: center;
     grid-gap: 10px;

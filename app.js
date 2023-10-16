@@ -38,24 +38,52 @@ myLibrary.push(bookOne);
 myLibrary.push(bookTwo);
 myLibrary.push(bookThree);
 
-let bookCard = document.querySelector("book-card");
-let bookTitle = document.querySelector("book__title");
-let bookAuthor = document.querySelector("book__author");
-let bookPages = document.querySelector("book__pages");
-let bookRead = document.querySelector("book__read");
+let topContent = document.querySelector(".top-content");
+let bookCard = document.querySelector(".book-card");
+let bookTitle = document.querySelector(".book__title");
+let bookAuthor = document.querySelector(".book__author");
+let bookPages = document.querySelector(".book__pages");
+let bookRead = document.querySelector(".book__read");
 
 function displayBooks() {
     for (const book of myLibrary) {
         console.log(book.author);
-        console.log(book.info());
     }
 }
 
-displayBooks();
 
-function createBookCard () {
-    const newBookCard = document.createElement('div');
-    newElement.textContent = 'This element appears on the screen';
-    document.body.appendChild(newElement);
+function createBookCardDiv () {
+    const newBookCardDiv = document.createElement('div');
+    newBookCardDiv.classList.add('book-card');
 
+    const titleH6 = document.createElement('h6');
+    titleH6.classList.add('book__title');
+
+    const authorP = document.createElement('p');
+    authorP.classList.add('book__author');
+
+    const pagesP = document.createElement('p');
+    pagesP.classList.add('book__pages');
+
+    const readP = document.createElement('p');
+    readP.classList.add('book__read');
+
+    const readButton = document.createElement('button');
+    readButton.textContent = 'Read';
+
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+
+    newBookCardDiv.appendChild(titleH6);
+    newBookCardDiv.appendChild(authorP);
+    newBookCardDiv.appendChild(pagesP);
+    newBookCardDiv.appendChild(readP);
+    newBookCardDiv.appendChild(readButton);
+    newBookCardDiv.appendChild(removeButton);
+
+    topContent.appendChild(newBookCardDiv);
 }
+
+createBookCardDiv();
+createBookCardDiv();
+displayBooks();
