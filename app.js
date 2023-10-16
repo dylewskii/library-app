@@ -25,19 +25,6 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
-//Write a function that loops through the array and 
-// displays each book on the page. 
-// You can display them in some sort of table, or each on their own “card”. It might help for now to manually add a few books to your array so you can see the display.
-
-// testing
-let bookOne = new Book("book one", "author one", 1, true);
-let bookTwo = new Book("book two", "author two", 2, false);
-let bookThree = new Book("book three", "author three", 3, true);
-
-myLibrary.push(bookOne);
-myLibrary.push(bookTwo);
-myLibrary.push(bookThree);
-
 let topContent = document.querySelector(".top-content");
 let bookCard = document.querySelector(".book-card");
 let bookTitle = document.querySelector(".book__title");
@@ -45,28 +32,37 @@ let bookAuthor = document.querySelector(".book__author");
 let bookPages = document.querySelector(".book__pages");
 let bookRead = document.querySelector(".book__read");
 
+// Displays all books currently stored in myLibrary array
 function displayBooks() {
     for (const book of myLibrary) {
-        console.log(book.author);
+        let currTitle = book["title"];
+        let currAuthor = book["author"];
+        let currPages = book["pages"];
+        let currRead = book["read"];
+        createBookCardDiv(currTitle, currAuthor, currPages, currRead)
     }
 }
 
-
-function createBookCardDiv () {
+// Creates a .book-card div inside .top-content div
+function createBookCardDiv(title, author, pages, read) {
     const newBookCardDiv = document.createElement('div');
     newBookCardDiv.classList.add('book-card');
 
     const titleH6 = document.createElement('h6');
     titleH6.classList.add('book__title');
+    titleH6.textContent = title;
 
     const authorP = document.createElement('p');
     authorP.classList.add('book__author');
+    authorP.textContent = author;
 
     const pagesP = document.createElement('p');
     pagesP.classList.add('book__pages');
+    pagesP.textContent = pages;
 
     const readP = document.createElement('p');
     readP.classList.add('book__read');
+    readP.textContent = read;
 
     const readButton = document.createElement('button');
     readButton.textContent = 'Read';
@@ -82,8 +78,6 @@ function createBookCardDiv () {
     newBookCardDiv.appendChild(removeButton);
 
     topContent.appendChild(newBookCardDiv);
-}
+};
 
-createBookCardDiv();
-createBookCardDiv();
-displayBooks();
+displayBooks()
