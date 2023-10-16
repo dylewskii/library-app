@@ -46,11 +46,16 @@ table {
 /* Root Styles */
 :root {
     --main-font: 'Libre Baskerville', serif;
+    --secondary-font: 'Lato', sans-serif;
 }
 
 h1, h2 {
     font-family: var(--main-font);
     font-size: 2rem;
+}
+
+p, h6, button {
+    font-family: var(--secondary-font);
 }
 
 /* Main */
@@ -94,18 +99,36 @@ h1, h2 {
 }
 
 /* Body */
-.book {
+.book-card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     background-color: rgb(47, 47, 47);
     height: 100%;
     width: 100%;
-    /* border-radius: 15px; */
-    
+    border-radius: 10px;
+    padding: 2px;
 }
 
-.book > p, h6 {
+.book-card > p, h6 {
     color: white;
     font-size: 0.8rem;
+}
+
+.book-card > button {
+    color: white;
+    background-color: #A2742F;
+    border: none;
+    border-radius: 5px;
+    margin: 3px;
+    width: 100px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.book-card > button:hover {
+    background-color: #FFD28E;
+    transition: 0.2s ease-in;
 }
 
