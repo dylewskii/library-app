@@ -18,7 +18,33 @@
         <!-- TOP -->
         <div class="top-header">
             <h1>My Books</h1>
-            <button class="add-book-btn">+</button>
+
+            <button data-open-modal class="add-book-btn">+</button>
+            <dialog data-modal>
+                    <button data-close-modal class="close-modal">X</button>
+                    <form action="#" method="post" class="modal-container">
+                        <label for="book-title">Book Title: </label>
+	                    <input type="text" id="book-title" placeholder="">
+
+                        <label for="book-author">Book Author: </label>
+	                    <input type="text" id="book-author" placeholder="">
+
+                        <label for="book-pages">Nr of Pages: </label>
+	                    <input type="number" id="book-pages" placeholder="">
+
+                        <p>Read?</p>
+                        <label for="book-read" value="Yes">
+                            <input type="radio" name="yesno" value="yes"> Yes
+                        </label>
+                    
+                        <label for="book-read" value="No">
+                            <input type="radio" name="yesno" value="no"> No
+                        </label>
+
+                        <button type="submit"> Submit </button>
+                    </form>
+            </dialog>
+
         </div>
         <div class="bookshelf__content">
             <div class="book-card">

@@ -58,6 +58,12 @@ p, h6, button {
     font-family: var(--secondary-font);
 }
 
+/* Modal */
+.modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Top Header */
 .top-header {
     display: flex;
