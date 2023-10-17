@@ -12,9 +12,6 @@ function Book (title, author, pages, read) {
 
 // Library Array to hold Book Objects
 const myLibrary = [];
-const myLibraryAlreadyOnScreen = [];
-
-
 
 // Takes user input & adds Book Object to Library Array
 function addBookToLibrary(title, author, pages, read) {
