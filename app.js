@@ -102,15 +102,3 @@ closeButton.addEventListener("click", () => {
     modal.close();
 })
 
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-createBookCardDiv("hello", "itsme", 11, true);
-displayBooks();
