@@ -25,7 +25,7 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 }
 
-let topContent = document.querySelector(".top-content");
+let bookshelf = document.querySelector(".bookshelf__content");
 let bookCard = document.querySelector(".book-card");
 let bookTitle = document.querySelector(".book__title");
 let bookAuthor = document.querySelector(".book__author");
@@ -47,6 +47,12 @@ function displayBooks() {
 function createBookCardDiv(title, author, pages, read) {
     const newBookCardDiv = document.createElement('div');
     newBookCardDiv.classList.add('book-card');
+
+    const cardTopDiv = document.createElement('div');
+    cardTopDiv.classList.add('card__top');
+
+    const cardBottomDiv = document.createElement('div');
+    cardBottomDiv.classList.add('card__bottom');
 
     const titleH6 = document.createElement('h6');
     titleH6.classList.add('book__title');
@@ -70,14 +76,18 @@ function createBookCardDiv(title, author, pages, read) {
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
 
-    newBookCardDiv.appendChild(titleH6);
-    newBookCardDiv.appendChild(authorP);
-    newBookCardDiv.appendChild(pagesP);
-    newBookCardDiv.appendChild(readP);
-    newBookCardDiv.appendChild(readButton);
-    newBookCardDiv.appendChild(removeButton);
+    cardTopDiv.appendChild(titleH6);
+    cardTopDiv.appendChild(authorP);
+    cardTopDiv.appendChild(pagesP);
+    cardTopDiv.appendChild(readP);
 
-    topContent.appendChild(newBookCardDiv);
+    cardBottomDiv.appendChild(readButton);
+    cardBottomDiv.appendChild(removeButton);
+
+    newBookCardDiv.appendChild(cardTopDiv);
+    newBookCardDiv.appendChild(cardBottomDiv);
+
+    bookshelf.appendChild(newBookCardDiv);
 };
 
 const openButton = document.querySelector("[data-open-modal]");
@@ -91,3 +101,16 @@ openButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
     modal.close();
 })
+
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+createBookCardDiv("hello", "itsme", 11, true);
+displayBooks();

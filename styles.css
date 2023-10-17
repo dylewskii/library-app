@@ -104,7 +104,7 @@ p, h6, button {
     border-radius: 15px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 120px);
+    grid-template-rows: repeat(3, 140px);
     grid-auto-rows: 120px;
     justify-items: center;
     align-items: center;
@@ -130,7 +130,7 @@ p, h6, button {
 .book-card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     background-color: rgb(47, 47, 47);
     height: 100%;
@@ -139,12 +139,19 @@ p, h6, button {
     padding: 2px;
 }
 
-.book-card > p, h6 {
+.card__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__top > p, h6, 
+.card__bottom > p, h6 {
     color: white;
     font-size: 0.8rem;
 }
 
-.book-card > button {
+.card__bottom > button {
     color: white;
     background-color: #A2742F;
     border: none;
@@ -155,7 +162,8 @@ p, h6, button {
     cursor: pointer;
 }
 
-.book-card > button:hover {
+.card__top > button:hover,
+.card__bottom > button:hover {
     background-color: #FFD28E;
     transition: 0.2s ease-in;
 }
