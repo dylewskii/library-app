@@ -97,6 +97,16 @@ function createBookCardDiv(title, author, pages, read, index) {
     bookshelf.appendChild(newBookCardDiv);
 };
 
+function toggleReadStatus(e) {
+    if (e.target.innerText === "Read"){
+        e.target.classList.toggle("notRead");
+        e.target.innerText = "Not Read";
+    } else {
+        e.target.classList.toggle("notRead");
+        e.target.innerText = "Read";
+    }
+};
+
 // Event Listeners
 openButton.addEventListener("click", () => {
     modal.showModal();
@@ -107,24 +117,25 @@ closeButton.addEventListener("click", () => {
 });
 
 bookshelf.addEventListener("click", (e) => {
+    const bookCard = e.target.parentElement.parentElement;
+    const bookIndexStr = bookCard.getAttribute('data-book-index');
+    const bookIndex = parseInt(bookIndexStr);
+
     // remove button
     if (e.target.classList.contains("removeBtn")){
-        const bookCard = e.target.parentElement.parentElement;
-        const bookIndexStr = bookCard.getAttribute('data-book-index');
-        const bookIndex = parseInt(bookIndexStr);
-
         myLibrary.splice(bookIndex, 1);
         displayBooks();
     // read button
     } else if (e.target.classList.contains("readBtn")) {
-        e.target.classList.toggle("readFalse");
+        // let readStatus = myLibrary[bookIndex]["read"];
+        e.target.classList.toggle("notRead");
         if (e.target.innerText === "Read"){
             e.target.innerText = "Not Read";
         } else {
             e.target.innerText = "Read";
         }
     }
-})
+});
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();

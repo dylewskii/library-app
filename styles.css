@@ -255,7 +255,7 @@ dialog::backdrop {
     transition: 0.2s ease-in;
 }
 
-.book-card > .card__bottom > .readFalse {
-    background-color: red;
+.book-card > .card__bottom > .notRead {
+    background-color: blue;
 }
 
