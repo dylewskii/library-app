@@ -107,6 +107,7 @@ closeButton.addEventListener("click", () => {
 });
 
 bookshelf.addEventListener("click", (e) => {
+    // remove button
     if (e.target.classList.contains("removeBtn")){
         const bookCard = e.target.parentElement.parentElement;
         const bookIndexStr = bookCard.getAttribute('data-book-index');
@@ -114,6 +115,14 @@ bookshelf.addEventListener("click", (e) => {
 
         myLibrary.splice(bookIndex, 1);
         displayBooks();
+    // read button
+    } else if (e.target.classList.contains("readBtn")) {
+        e.target.classList.toggle("readFalse");
+        if (e.target.innerText === "Read"){
+            e.target.innerText = "Not Read";
+        } else {
+            e.target.innerText = "Read";
+        }
     }
 })
 
