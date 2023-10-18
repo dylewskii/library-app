@@ -1,3 +1,22 @@
+// Bookshelf Elements
+const bookshelf = document.querySelector(".bookshelf__content");
+const bookCard = document.querySelector(".book-card");
+const bookTitle = document.querySelector(".book__title");
+const bookAuthor = document.querySelector(".book__author");
+const bookPages = document.querySelector(".book__pages");
+const bookRead = document.querySelector(".book__read");
+const readBtn = document.querySelector(".readBtn");
+const removeBtn = document.querySelector(".removeBtn");
+
+// Modal Elements
+const openButton = document.querySelector("[data-open-modal]");
+const closeButton = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+const form = document.getElementById("form");
+
+// Library Array to hold Book Objects
+const myLibrary = [];
+
 // Book Object Constructor
 function Book (title, author, pages, read) {
     this.title = title;
@@ -10,45 +29,29 @@ function Book (title, author, pages, read) {
     }
 };
 
-// Library Array to hold Book Objects
-const myLibrary = [];
-
-// Takes user input & adds Book Object to Library Array
+// Take user input & add Book Object to Library Array
 function addBookToLibrary(title, author, pages, read) {
     newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
 
-// Bookshelf 
-const bookshelf = document.querySelector(".bookshelf__content");
-const bookCard = document.querySelector(".book-card");
-const bookTitle = document.querySelector(".book__title");
-const bookAuthor = document.querySelector(".book__author");
-const bookPages = document.querySelector(".book__pages");
-const bookRead = document.querySelector(".book__read");
-
-// Modal
-const openButton = document.querySelector("[data-open-modal]");
-const closeButton = document.querySelector("[data-close-modal]");
-const modal = document.querySelector("[data-modal]");
-const form = document.getElementById("form");
-
-// Displays all books currently stored in myLibrary array
+// Display all books currently stored in myLibrary array
 function displayBooks() {
     bookshelf.innerHTML = '';
-    for (const book of myLibrary){
-        let currTitle = book["title"];
-        let currAuthor = book["author"];
-        let currPages = book["pages"];
-        let currRead = book["read"];
-        createBookCardDiv(currTitle, currAuthor, currPages, currRead);
+    for (let i = 0; i < myLibrary.length; i++){
+        const currTitle = myLibrary[i]["title"];
+        const currAuthor = myLibrary[i]["author"];
+        const currPages = myLibrary[i]["pages"];
+        const currRead = myLibrary[i]["read"];
+        createBookCardDiv(currTitle, currAuthor, currPages, currRead, i);
     }
 };
 
-// Creates a .book-card div inside .bookshelf__content div
-function createBookCardDiv(title, author, pages, read) {
+// Create a .book-card div inside .bookshelf__content div
+function createBookCardDiv(title, author, pages, read, index) {
     const newBookCardDiv = document.createElement('div');
     newBookCardDiv.classList.add('book-card');
+    newBookCardDiv.setAttribute('data-book-index', index);
 
     const cardTopDiv = document.createElement('div');
     cardTopDiv.classList.add('card__top');
@@ -100,6 +103,14 @@ openButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
     modal.close();
 });
+
+removeBtn.addEventListener("click", (e) => {
+    const bookCard = e.target.parentElement.parentElement;
+    const bookIndex = bookCard.getAttribute("data-book-index");
+    console.log(bookIndex);
+    myLibrary.splice(bookIndex, 1);
+    displayBooks();
+})
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
