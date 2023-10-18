@@ -76,9 +76,11 @@ function createBookCardDiv(title, author, pages, read, index) {
     readP.textContent = read;
 
     const readButton = document.createElement('button');
+    readButton.classList.add('readBtn');
     readButton.textContent = 'Read';
 
     const removeButton = document.createElement('button');
+    removeButton.classList.add('removeBtn');
     removeButton.textContent = 'Remove';
 
     cardTopDiv.appendChild(titleH6);
@@ -104,12 +106,15 @@ closeButton.addEventListener("click", () => {
     modal.close();
 });
 
-removeBtn.addEventListener("click", (e) => {
-    const bookCard = e.target.parentElement.parentElement;
-    const bookIndex = bookCard.getAttribute("data-book-index");
-    console.log(bookIndex);
-    myLibrary.splice(bookIndex, 1);
-    displayBooks();
+bookshelf.addEventListener("click", (e) => {
+    if (e.target.classList.contains("removeBtn")){
+        const bookCard = e.target.parentElement.parentElement;
+        const bookIndexStr = bookCard.getAttribute('data-book-index');
+        const bookIndex = parseInt(bookIndexStr);
+
+        myLibrary.splice(bookIndex, 1);
+        displayBooks();
+    }
 })
 
 form.addEventListener("submit", (e) => {
