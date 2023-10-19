@@ -256,6 +256,5 @@ dialog::backdrop {
 }
 
 .book-card > .card__bottom > .notRead {
-    background-color: blue;
+    background-color: red;
 }
-

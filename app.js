@@ -71,13 +71,14 @@ function createBookCardDiv(title, author, pages, read, index) {
     pagesP.classList.add('book__pages');
     pagesP.textContent = pages;
 
-    const readP = document.createElement('p');
-    readP.classList.add('book__read');
-    readP.textContent = read;
-
     const readButton = document.createElement('button');
-    readButton.classList.add('readBtn');
-    readButton.textContent = 'Read';
+    if (read){
+        readButton.classList.add('readBtn');
+        readButton.textContent = 'Read';
+    } else {
+        readButton.classList.add('notRead');
+        readButton.textContent = 'Not Read';
+    }
 
     const removeButton = document.createElement('button');
     removeButton.classList.add('removeBtn');
@@ -86,7 +87,6 @@ function createBookCardDiv(title, author, pages, read, index) {
     cardTopDiv.appendChild(titleH6);
     cardTopDiv.appendChild(authorP);
     cardTopDiv.appendChild(pagesP);
-    cardTopDiv.appendChild(readP);
 
     cardBottomDiv.appendChild(readButton);
     cardBottomDiv.appendChild(removeButton);
@@ -97,14 +97,18 @@ function createBookCardDiv(title, author, pages, read, index) {
     bookshelf.appendChild(newBookCardDiv);
 };
 
-function toggleReadStatus(e) {
-    if (e.target.innerText === "Read"){
-        e.target.classList.toggle("notRead");
-        e.target.innerText = "Not Read";
-    } else {
-        e.target.classList.toggle("notRead");
-        e.target.innerText = "Read";
-    }
+// function toggleReadStatus(e) {
+//     if (e.target.innerText === "Read"){
+//         e.target.classList.toggle("notRead");
+//         e.target.innerText = "Not Read";
+//     } else {
+//         e.target.classList.toggle("notRead");
+//         e.target.innerText = "Read";
+//     }
+// };
+
+function toggleReadStatus(e, readStatus, index) {
+    
 };
 
 // Event Listeners
@@ -127,13 +131,14 @@ bookshelf.addEventListener("click", (e) => {
         displayBooks();
     // read button
     } else if (e.target.classList.contains("readBtn")) {
-        // let readStatus = myLibrary[bookIndex]["read"];
-        e.target.classList.toggle("notRead");
-        if (e.target.innerText === "Read"){
-            e.target.innerText = "Not Read";
-        } else {
-            e.target.innerText = "Read";
-        }
+        let readStatus = myLibrary[bookIndex]["read"];
+        console.log(readStatus)
+        // e.target.classList.toggle("notRead");
+        // if (e.target.innerText === "Read"){
+        //     e.target.innerText = "Not Read";
+        // } else {
+        //     e.target.innerText = "Read";
+        // }
     }
 });
 
@@ -142,8 +147,7 @@ form.addEventListener("submit", (e) => {
     const titleInput = document.getElementById("book-title").value;
     const authorInput = document.getElementById("book-author").value;
     const pagesInput = document.getElementById("book-pages").value;
-    const readInputValue = document.querySelector(".book-read").value;
-    const readInput = readInputValue === "Yes" ? true : false;
+    const readInput = document.querySelector(".book-read").checked;
 
     addBookToLibrary(titleInput, authorInput, pagesInput, readInput);
     form.reset();
