@@ -240,7 +240,6 @@ dialog::backdrop {
 
 .card__bottom > button {
     color: white;
-    background-color: #A2742F;
     border: none;
     border-radius: 5px;
     margin: 3px;
@@ -249,12 +248,21 @@ dialog::backdrop {
     cursor: pointer;
 }
 
-.card__top > button:hover,
-.card__bottom > button:hover {
-    background-color: #FFD28E;
-    transition: 0.2s ease-in;
+.card__bottom > .removeBtn {
+    background-color: #A2742F;
 }
 
-.book-card > .card__bottom > .notRead {
+.card__bottom > .readBtn {
+    background-color: #A2742F;
+}
+
+.card__bottom > .notReadBtn {
     background-color: red;
+}
+
+.card__bottom > .removeBtn:hover, 
+.card__bottom > .readBtn:hover, 
+.card__bottom > .notReadBtn:hover {
+    background-color: #FFD28E;
+    transition: 0.2s ease-in;
 }

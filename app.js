@@ -26,14 +26,17 @@ function Book (title, author, pages, read) {
     this.info = function () {
         const readStatus = this.read ? "read" : "not read yet";
         return (`${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}`);
-    }
-};
+    };
+    this.toggleReadStatus = function () {
+        this.read = !this.read;
+    };
+}
 
 // Take user input & add Book Object to Library Array
 function addBookToLibrary(title, author, pages, read) {
     newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
-}
+};
 
 // Display all books currently stored in myLibrary array
 function displayBooks() {
@@ -76,7 +79,7 @@ function createBookCardDiv(title, author, pages, read, index) {
         readButton.classList.add('readBtn');
         readButton.textContent = 'Read';
     } else {
-        readButton.classList.add('notRead');
+        readButton.classList.add('notReadBtn');
         readButton.textContent = 'Not Read';
     }
 
@@ -95,20 +98,6 @@ function createBookCardDiv(title, author, pages, read, index) {
     newBookCardDiv.appendChild(cardBottomDiv);
 
     bookshelf.appendChild(newBookCardDiv);
-};
-
-// function toggleReadStatus(e) {
-//     if (e.target.innerText === "Read"){
-//         e.target.classList.toggle("notRead");
-//         e.target.innerText = "Not Read";
-//     } else {
-//         e.target.classList.toggle("notRead");
-//         e.target.innerText = "Read";
-//     }
-// };
-
-function toggleReadStatus(e, readStatus, index) {
-    
 };
 
 // Event Listeners
@@ -130,15 +119,9 @@ bookshelf.addEventListener("click", (e) => {
         myLibrary.splice(bookIndex, 1);
         displayBooks();
     // read button
-    } else if (e.target.classList.contains("readBtn")) {
-        let readStatus = myLibrary[bookIndex]["read"];
-        console.log(readStatus)
-        // e.target.classList.toggle("notRead");
-        // if (e.target.innerText === "Read"){
-        //     e.target.innerText = "Not Read";
-        // } else {
-        //     e.target.innerText = "Read";
-        // }
+    } else if (e.target.classList.contains("readBtn") || e.target.classList.contains("notReadBtn")) {
+        myLibrary[bookIndex].toggleReadStatus();
+        displayBooks();
     }
 });
 
