@@ -90,40 +90,34 @@ dialog::backdrop {
     align-self: center;
 }
 
-.modal-header > button {
-    border: 2px solid #F4E7D8;
+.close-modal {
+    border: none;
     background-color: #FFD28E; 
     border-radius: 8px;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     font-size: 0.7rem;
+    margin: 0 5px 5px 0;
 }
 
-.modal-header > button:hover {
+.close-modal:hover {
     cursor: pointer;
     background-color: white;
 }
 
 .modal-div {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.modal-div > label {
+label {
     font-family: var(--secondary-font);
     font-size: 0.9rem;
     border-radius: 8px;
 }
 
-.modal-div > input {
-    background-color: white;
-    border: none;
-    border-radius: 8px;
-    margin: 10px;
-    justify-self: flex-end;
-}
-
-.modal-div > input {
+.modal-div > .right > input {
     background-color: white;
     border: none;
     height: 15px;
@@ -131,8 +125,8 @@ dialog::backdrop {
     margin: 10px;
 }
 
-.read__div > label:first-child {
-    margin-right: 50px;
+.modal-div > .right > input:focus {
+    outline-color: #FFD28E;
 }
 
 .modal-div > button {
@@ -147,6 +141,17 @@ dialog::backdrop {
 .modal-div > button:hover {
     background-color: white;
     cursor: pointer;
+}
+
+.submit__div {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.submitBtn {
+    min-width: 200px;
+    font-family: var(--main-font);
 }
 
 /* Top Header */
@@ -198,20 +203,6 @@ dialog::backdrop {
     padding: 20px;
 }
 
-/* .bottom-header {
-    grid-row: 3;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.bottom-content {
-    grid-row: 4;
-    background-color: #F4E7D8;
-    border-radius: 15px;
-} */
-
 /* Body */
 .book-card {
     display: flex;
@@ -231,8 +222,7 @@ dialog::backdrop {
     align-items: center;
 }
 
-.card__top > p, h6, 
-.card__bottom > p, h6 {
+.card__top > p, h6 {
     color: white;
     font-size: 0.8rem;
     line-height: 15px;
