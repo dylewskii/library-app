@@ -1,6 +1,6 @@
 # library-app
 
-[Live](https://dylewskii.github.io/library-app/)
+[Live Demo](https://dylewskii.github.io/library-app/)
 
 ## Project Goal:
 - To create a simple Library App using an Object Constructor.
